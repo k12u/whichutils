@@ -13,10 +13,10 @@
         var text = '';
         data.forEach(function(elem){
             if(new RegExp(query).exec(elem[0])) {
-                text += '<div>' + elem[0] + ' : ' + elem[1] +'</div>'
+                text += '<tr><td>' + elem[0] + ' :</td><td> ' + elem[1] +'</td></tr>'
             }
         });
-        $('#output')[0].innerHTML = text;
+        $('#output')[0].innerHTML = '<table>' + text + '</table>';
     }
     $(document).ready(function() {
         refresh();
