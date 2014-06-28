@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="data/data.js" type="text/javascript"></script>
+</head>
+<body>
+<h1>whichutils?</h1>
+<p>hint: type `cat'.</p>
+<input id="search" type="text" autofocus="1">
+<script>
+    function refresh() {
+        var query = $('#search').val();
+        var text = '';
+        data.forEach(function(elem){
+            if(new RegExp(query).exec(elem[0])) {
+                text += '<div>' + elem[0] + ' : ' + elem[1] +'</div>'
+            }
+        });
+        $('#output')[0].innerHTML = text;
+    }
+    $(document).ready(function() {
+        refresh();
+        $('#search').on('click blur keydown keyup keypress change', refresh);
+    });
+</script>
+<div id="output">
+
+</div>
+</body>
+</html>
